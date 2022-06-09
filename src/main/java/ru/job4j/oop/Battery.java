@@ -1,3 +1,5 @@
+package ru.job4j.oop;
+
 public class Battery {
     private int load;
 
@@ -14,4 +16,5 @@ public class Battery {
         this.load = 0;
     }
 }
+
 
