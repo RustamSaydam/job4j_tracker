@@ -16,7 +16,7 @@ public class PointTest {
     }
 
     @Test
-    public void when000to333then5() {
+    public void when000to333then5dot19() {
         double expected = 5.19;
         Point a = new Point(0, 0, 0);
         Point b = new Point(3, 3, 3);
@@ -25,7 +25,7 @@ public class PointTest {
     }
 
     @Test
-    public void when686to425then6() {
+    public void when686to425then6dot4() {
         double expected = 6.403;
         Point a = new Point(6, 8, 6);
         Point b = new Point(4, 2, 5);
@@ -34,7 +34,7 @@ public class PointTest {
     }
 
     @Test
-    public void when717to524then6() {
+    public void when717to524then3dot7() {
         double expected = 3.741;
         Point a = new Point(7, 1, 7);
         Point b = new Point(5, 2, 4);
