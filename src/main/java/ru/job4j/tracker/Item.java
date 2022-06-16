@@ -48,8 +48,5 @@ public class Item {
         this.created = created;
     }
 
-    public static void main(String[] args) {
-        LocalDateTime created = LocalDateTime.now();
-    }
 }
 
