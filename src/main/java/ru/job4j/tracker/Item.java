@@ -44,5 +44,7 @@ public class Item {
         this.created = created;
     }
 
+    public void setName(String test1) {
+    }
 }
 
