@@ -20,6 +20,10 @@ public class Item {
         this.name = name;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public Item(LocalDateTime created) {
         this.created = created;
     }
