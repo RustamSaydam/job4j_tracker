@@ -49,7 +49,7 @@ public class Tracker {
         if (rsl) {
             int copyFrom = index + 1;
             int length = size - index - 1;
-            System.arraycopy(items, copyFrom, items, index, length);
+            System.arraycopy(items, index + 1, items, index, size - index - 1);
             items[size - 1] = null;
             size--;
         }
