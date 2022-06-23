@@ -17,7 +17,7 @@ public class StartUI {
                 tracker.add(item);
                 System.out.println("Add new a Item: " + item);
             } else if (select == 1) {
-                System.out.println("=== Show all items===");
+                System.out.println("=== Show all items ===");
                 Item[] items = tracker.findAll();
                 if (items.length > 0) {
                     for (Item item : items) {
@@ -47,6 +47,17 @@ public class StartUI {
                 } else {
                     System.out.println("Error Item delete");
                 }
+            } else if (select == 4) {
+                System.out.println("=== Find item by id === ");
+                System.out.print("Enter id: ");
+                int id = Integer.parseInt(scanner.nextLine());
+                Item item = tracker.findById(id);
+                if (item != null) {
+                    System.out.println(item);
+                } else {
+                    System.out.println(" Item with these id " + id + " Not found ");
+                }
+                System.out.println(item);
             } else if (select == 6) {
                 run = false;
             }
