@@ -66,7 +66,7 @@ public class StartUI {
                     for (Item item : items) {
                         System.out.println(item);
                     }
-                    } else {
+                } else {
                     System.out.println("Items with name: " + name + " Not found.");
                 }
             } else if (select == 6) {
