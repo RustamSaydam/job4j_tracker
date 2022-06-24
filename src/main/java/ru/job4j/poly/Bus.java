@@ -1,25 +1,12 @@
 package ru.job4j.poly;
 
-import java.util.Scanner;
-
-public class Bus implements Transport {
-    private static final int FUELPRICE = 1;
-    private int passengers;
-
-    @Override
-    public void ride() {
-        Scanner scanner = new Scanner(System.in);
-        int push = scanner.nextInt();
+public class Bus implements Vehicle {
+    public Bus() {
+        System.out.println("Go to adventure");
     }
 
     @Override
-    public void passengers(int passengers) {
-        this.passengers = passengers;
+    public void move() {
 
-    }
-
-    @Override
-    public double reFuel(int fuel) {
-        return fuel * FUELPRICE;
     }
 }
