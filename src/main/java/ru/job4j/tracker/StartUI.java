@@ -57,7 +57,6 @@ public class StartUI {
                 } else {
                     System.out.println(" Item with these id " + id + " Not found ");
                 }
-                System.out.println(item);
             } else if (select == 5) {
                 System.out.println("=== Find item by name ===");
                 System.out.print("Enter name: ");
