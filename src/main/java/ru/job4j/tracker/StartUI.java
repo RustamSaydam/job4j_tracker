@@ -1,37 +1,36 @@
 package ru.job4j.tracker;
 
 public class StartUI {
-    @SuppressWarnings("checkstyle:NeedBraces")
-    public void init(ConsoleInput consoleInput, Tracker tracker) {
+    public void init(Input input, Tracker tracker) {
         boolean run = true;
         while (run) {
             showMenu();
-            int select = consoleInput.askInt("select: ");
+            int select = input.askInt("select: ");
             if (select == 0) {
-                addNewItem(consoleInput, tracker);
+                addNewItem(input, tracker);
             } else if (select == 1) {
-                showAllItem(tracker);
+                showAllItem(input, tracker);
             } else if (select == 2) {
-                editItem(consoleInput, tracker);
+                editItem(input, tracker);
             } else if (select == 3) {
-                deleteItem(consoleInput, tracker);
+                deleteItem(input, tracker);
             } else if (select == 4) {
-                findById(consoleInput, tracker);
+                findById(input, tracker);
             } else if (select == 5) {
-                findByName(consoleInput, tracker);
+                findByName(input, tracker);
             } else if (select == 6) {
                 run = false;
             }
         }
     }
 
-    public static void addNewItem(ConsoleInput consoleInput, Tracker tracker) {
+    public static void addNewItem(Input consoleInput, Tracker tracker) {
         Item item = new Item(consoleInput.askStr("Enter name of new Item: "));
         tracker.add(item);
         System.out.println("Item added " + item);
     }
 
-    public static void showAllItem(Tracker tracker) {
+    public static void showAllItem(Input input, Tracker tracker) {
         System.out.println("=== Show all items ===");
         Item[] allFiles = tracker.findAll();
         if (allFiles.length > 0) {
@@ -43,41 +42,44 @@ public class StartUI {
         }
     }
 
-    public static void editItem(ConsoleInput consoleInput, Tracker tracker) {
+    public static void editItem(Input input, Tracker tracker) {
         System.out.println("=== Edit item ==");
-        int currentId = consoleInput.askInt("press id of item you want to replace: ");
-        Item item = new Item(consoleInput.askStr("press name of new item: "));
-        if (tracker.replace(currentId, item)) {
-            System.out.println("suссed");
+        int id = input.askInt("press id of item you want to replace: ");
+        String name = input.askStr("press name of new item: ");
+        Item item = new Item(name);
+        if (tracker.replace(id, item)) {
+            System.out.println("suссess");
         } else {
             System.out.println("There are no items with such id!");
         }
     }
 
-    public static void deleteItem(ConsoleInput consoleInput, Tracker tracker) {
+    public static void deleteItem(Input input, Tracker tracker) {
         System.out.println("=== Delete item ===");
-        boolean deleted = tracker.delete(consoleInput.askInt("press " + "id of item you want to delete: "));
-        if (deleted) {
-            System.out.println("succed");
+        int id = input.askInt("Enter id ");
+        if (tracker.delete(id)) {
+            System.out.println("Item with ID " + id + " delete");
         } else {
             System.out.println("There are no items with such id!");
         }
     }
 
-    public static void findById(ConsoleInput consoleInput, Tracker tracker) {
+    public static void findById(Input input, Tracker tracker) {
         System.out.println("=== Find item by id ===");
-        Item finded = tracker.findById(consoleInput.askInt("press " + "id of item you want to find"));
-        if (finded != null) {
+        int id = input.askInt("Enter id");
+        Item item = tracker.findById(id);
+        if (item != null) {
             System.out.println("your item is: ");
-            System.out.println(finded);
+            System.out.println(id);
         } else {
             System.out.println("There are no items with such id!");
         }
     }
 
-    public static void findByName(ConsoleInput consoleInput, Tracker tracker) {
+    public static void findByName(Input input, Tracker tracker) {
         System.out.println("=== Find items by name ===");
-        Item[] items = tracker.findByName(consoleInput.askStr("press " + "name of item you want to find"));
+        String name = input.askStr("Enter name");
+        Item[] items = tracker.findByName(name);
         if (items.length > 0) {
             for (Item item : items) {
                 System.out.println(item);
@@ -88,7 +90,10 @@ public class StartUI {
     }
 
     public void showMenu() {
-        String[] menuItems = {"Add new Item", "Show all items", "Edit item", "Delete item", "Find item by id", "Find items by name", "Exit Program"};
+        String[] menuItems = {
+                "Add new Item", "Show all items", "Edit item",
+                "Delete item", "Find item by id", "Find items by name",
+                "Exit Program"};
         System.out.println("Menu:");
         for (int i = 0; i < menuItems.length; i++) {
             System.out.println(i + ". " + menuItems[i]);
