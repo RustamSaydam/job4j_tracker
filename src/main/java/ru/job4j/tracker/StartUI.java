@@ -48,9 +48,9 @@ public class StartUI {
         String name = input.askStr("press name of new item: ");
         Item item = new Item(name);
         if (tracker.replace(id, item)) {
-            System.out.println("suссess");
+            System.out.println("Item with ID " + id + " edited");
         } else {
-            System.out.println("There are no items with such id!");
+            System.out.println("Item with ID " + id + " is not edited");
         }
     }
 
@@ -70,7 +70,7 @@ public class StartUI {
         Item item = tracker.findById(id);
         if (item != null) {
             System.out.println("your item is: ");
-            System.out.println(id);
+            System.out.println(item);
         } else {
             System.out.println("There are no items with such id!");
         }
