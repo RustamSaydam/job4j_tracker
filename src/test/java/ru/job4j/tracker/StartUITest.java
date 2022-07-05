@@ -36,7 +36,6 @@ public class StartUITest {
 
     }
 
-
     @Test
     public void whenFindAllAction() {
         Output out = new StubOutput();
