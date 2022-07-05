@@ -10,7 +10,7 @@ public class ShowAllAction implements UserAction {
 
     @Override
     public String name() {
-        return "Delete Item";
+        return "Show All Items";
     }
 
     @Override
