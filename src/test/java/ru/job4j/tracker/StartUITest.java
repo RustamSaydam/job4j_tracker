@@ -54,16 +54,16 @@ public class StartUITest {
         String ln = System.lineSeparator();
         assertThat(out.toString(), is(
                 "Menu:" + ln
-                + "0. Show All Items" + ln
-                + "1. Exit Program"   + ln
-                + "=== Show all items ===" + ln
-                + one + ln
-                + two + ln
-                + three + ln
-                + "Menu:" + ln
-                + "0. Show All Items" + ln
-                + "1. Exit Program" + ln
-                + "=== Exit Program ===" + ln
+                        + "0. Show All Items" + ln
+                        + "1. Exit Program" + ln
+                        + "=== Show all items ===" + ln
+                        + one + ln
+                        + two + ln
+                        + three + ln
+                        + "Menu:" + ln
+                        + "0. Show All Items" + ln
+                        + "1. Exit Program" + ln
+                        + "=== Exit Program ===" + ln
         ));
     }
 
@@ -72,11 +72,11 @@ public class StartUITest {
         Output out = new StubOutput();
         Tracker tracker = new Tracker();
         Item one = tracker.add(new Item("test1"));
-        Item two =  tracker.add(new Item("test2"));
+        Item two = tracker.add(new Item("test2"));
         Item three = tracker.add(new Item("test3"));
         String name = "test2";
         Input in = new StubInput(
-                new String[] {"0", name, "1"}
+                new String[]{"0", name, "1"}
         );
         UserAction[] actions = new UserAction[]{
                 new FindByNameAction(out),
@@ -102,10 +102,10 @@ public class StartUITest {
         Output out = new StubOutput();
         Tracker tracker = new Tracker();
         Item one = tracker.add(new Item("test1"));
-        Item two =  tracker.add(new Item("test2"));
+        Item two = tracker.add(new Item("test2"));
         Item three = tracker.add(new Item("test3"));
         Input in = new StubInput(
-        new String[] {"0", String.valueOf(two.getId()), "1"}
+                new String[]{"0", String.valueOf(two.getId()), "1"}
         );
         UserAction[] actions = new UserAction[]{
                 new FindByIdAction(out),
