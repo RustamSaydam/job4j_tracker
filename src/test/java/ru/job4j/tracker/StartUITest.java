@@ -8,13 +8,13 @@ import static org.junit.Assert.*;
 
 public class StartUITest {
     @Test
-    public void whenDeleteItemTestOutputIsSuccessfully() {
+    public void whenEditItemTestOutputIsSuccessfully() {
         Output out = new StubOutput();
         Tracker tracker = new Tracker();
         Item one = tracker.add(new Item("test1"));
-        String deleteName = "New Test Name";
+        String editName = "New Test Name";
         Input in = new StubInput(
-                new String[]{"0", String.valueOf(one.getId()), deleteName, "1"}
+                new String[]{"0", String.valueOf(one.getId()), editName, "1"}
         );
         UserAction[] actions = new UserAction[]{
                 new EditAction(out),
