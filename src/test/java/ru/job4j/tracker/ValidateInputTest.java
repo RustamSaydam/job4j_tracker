@@ -19,7 +19,7 @@ public class ValidateInputTest {
     }
 
     @Test
-    public void WhenInvalidMoreActions() {
+    public void whenInvalidMoreActions() {
         Output out = new StubOutput();
         Input in = new StubInput(
                 new String[]{"1", "2", "3", "4"}
@@ -30,7 +30,7 @@ public class ValidateInputTest {
     }
 
     @Test
-    public void WhenInvalidTest() {
+    public void whenInvalidTest() {
         Output out = new StubOutput();
         Input in = new StubInput(
                 new String[]{"3"}
@@ -41,7 +41,7 @@ public class ValidateInputTest {
     }
 
     @Test
-    public void WhenInvalidMinus() {
+    public void whenInvalidMinus() {
         Output out = new StubOutput();
         Input in = new StubInput(
                 new String[]{"-4"}
