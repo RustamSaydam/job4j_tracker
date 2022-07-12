@@ -5,15 +5,14 @@ public class UserStore {
         for (User user : users) {
             if (login.equals(user.getUsername())) {
                 return user;
-            } else {
-                throw new UserNotFoundException("User not Found");
             }
+
         }
-        return null;
+        throw new UserNotFoundException("User not Found");
     }
 
     public static boolean validate(User user) throws UserInvalidException {
-        if (user.isValid() && user.getUsername().length() < 3) {
+        if (!user.isValid() || user.getUsername().length() < 3) {
             throw new UserInvalidException("This user not validate");
         }
         return true;
