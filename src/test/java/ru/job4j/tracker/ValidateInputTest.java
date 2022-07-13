@@ -19,18 +19,24 @@ public class ValidateInputTest {
     }
 
     @Test
-    public void whenInvalidMoreActions() {
+    public void whenMultipleValidInput() {
         Output out = new StubOutput();
         Input in = new StubInput(
                 new String[]{"1", "2", "3", "4"}
         );
         ValidateInput input = new ValidateInput(out, in);
         int selected = input.askInt("Enter Menu: ");
-        assertThat(out.toString(), is(""));
+        assertThat(selected, is(1));
+        selected = input.askInt("Enter Menu: ");
+        assertThat(selected, is(2));
+        selected = input.askInt("Enter Menu: ");
+        assertThat(selected, is(3));
+        selected = input.askInt("Enter Menu: ");
+        assertThat(selected, is(4));
     }
 
     @Test
-    public void whenInvalidTest() {
+    public void whenValidTest() {
         Output out = new StubOutput();
         Input in = new StubInput(
                 new String[]{"3"}
@@ -41,7 +47,7 @@ public class ValidateInputTest {
     }
 
     @Test
-    public void whenInvalidMinus() {
+    public void whenNegativeInput() {
         Output out = new StubOutput();
         Input in = new StubInput(
                 new String[]{"-4"}
