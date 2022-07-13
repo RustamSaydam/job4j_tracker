@@ -29,10 +29,8 @@ public class UserStore {
             }
         } catch (UserInvalidException e) {
             e.printStackTrace();
-            System.out.println("This user not validate");
         } catch (UserNotFoundException e) {
             e.printStackTrace();
-            System.out.println("This user not found");
         }
 
     }
