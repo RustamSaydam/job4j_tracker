@@ -9,7 +9,8 @@ public class DeleteAction implements UserAction {
 
     @Override
     public String name() {
-        return "Delete Item";
+
+            return "Delete Item";
     }
 
     @Override
