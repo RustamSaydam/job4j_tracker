@@ -6,7 +6,6 @@ import java.util.List;
 public class Tracker {
     private final List<Item> items = new ArrayList<>();
     private int ids = 1;
-    private int size = 0;
 
     private int indexOf(int id) {
         int rsl = -1;
@@ -26,7 +25,7 @@ public class Tracker {
     }
 
     public List<Item> findAll() {
-        return items;
+        return List.copyOf(items);
     }
 
     public Item findById(int id) {
@@ -56,8 +55,7 @@ public class Tracker {
     public List<Item> findByName(String key) {
         List<Item> rsl = new ArrayList<>();
         int countEquals = 0;
-        for (int index = 0; index < items.size(); index++) {
-            Item item = items.get(index);
+        for (Item item : items) {
             if (item.getName().equals(key)) {
                 rsl.add(item);
             }
