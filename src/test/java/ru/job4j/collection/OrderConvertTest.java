@@ -28,7 +28,7 @@ public class OrderConvertTest {
         orders.add(new Order("3214", "Rustam"));
         orders.add(new Order("3224", "Rustam"));
         HashMap<String, Order> map = OrderConvert.process(orders);
-        int expectedSize = 4; // проверяет количество одинаковых названий (тут их 4) если добавить строку с друг именем то будет 5;
+        int expectedSize = 4;
         int outSize = map.size();
         assertEquals(expectedSize, outSize);
     }
