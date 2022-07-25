@@ -11,7 +11,6 @@ import static org.junit.Assert.*;
 
 public class ItemTest {
    @Test
-
     public void whenAscByName() {
        Item mazda = new Item("Mazda");
        Item nissan = new Item("Nissan");
