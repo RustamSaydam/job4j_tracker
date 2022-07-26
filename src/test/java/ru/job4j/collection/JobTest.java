@@ -1,6 +1,5 @@
 package ru.job4j.collection;
 
-import static org.junit.Assert.*;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -24,7 +23,7 @@ public class JobTest {
 
     @Test
     public void whenCompatorByNameAndProrityDown() {
-        Comparator<Job> cmpNamePriority = new JobDescByNameDown().thenComparing(new JobDescByPriorityDown());
+        Comparator<Job> cmpNamePriority = new JobAscByName().thenComparing(new JobAscByPriority());
         int rsl = cmpNamePriority.compare(
                 new Job("Fix bug", 1),
                 new Job("Impl Task", 0)
@@ -46,7 +45,7 @@ public class JobTest {
         List<Job> list = new ArrayList<>();
         list.add(new Job("Fix bug", 5));
         list.add(new Job("Refactor code", 9));
-        list.sort(new JobDescByNameDown());
+        list.sort(new JobAscByName());
         assertThat(list.get(1).getName(), is("Refactor code"));
     }
 
@@ -64,7 +63,7 @@ public class JobTest {
         List<Job> list = new ArrayList<>();
         list.add(new Job("Fix bug", 5));
         list.add(new Job("Refactor code", 9));
-        list.sort(new JobDescByPriorityDown());
+        list.sort(new JobAscByPriority());
         assertThat(list.get(1).getPriority(), is(9));
     }
 }
