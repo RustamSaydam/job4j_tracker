@@ -25,10 +25,10 @@ public class JobTest {
     public void whenCompatorByNameAndProrityDown() {
         Comparator<Job> cmpNamePriority = new JobAscByName().thenComparing(new JobAscByPriority());
         int rsl = cmpNamePriority.compare(
-                new Job("Fix bug", 1),
+                new Job("Impl Task", 1),
                 new Job("Impl Task", 0)
         );
-        assertThat(rsl, lessThan(0));
+        assertThat(rsl, greaterThan(0));
     }
 
     @Test
