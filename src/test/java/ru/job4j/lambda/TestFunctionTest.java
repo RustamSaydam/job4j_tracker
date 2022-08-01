@@ -27,7 +27,7 @@ public class TestFunctionTest {
     @Test
     public void whenExpontFunctionThenResults() {
      List<Double> result = TestFunction.diapason(4, 7, x -> Math.pow(2, x) + 4);
-     List<Double> expected = Arrays.asList(20D, 29D, 40D);
+     List<Double> expected = Arrays.asList(20D, 36D, 68D);
      assertThat(result, is(expected));
     }
 }
